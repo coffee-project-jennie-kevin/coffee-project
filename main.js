@@ -1,31 +1,39 @@
-(function() {
+// (function() {
     "use strict"
 
     // let coffeeTitle = document.getElementById("coffeeTitle");
     // coffeeTitle.innerHTML = "mission accomplished";
     // console.log(coffeeTitle);
-    let light = document.getElementsByClassName("hidelight");
-    let search = document.getElementById('search');
-
-    search.addEventListener('click', function() {
-        for(let i = 0; i < light.length; i++){
-            // light[i].style.color = "blue";
-            light[i].classList.add('visually-hidden');
-
-        }
-    });
+    // let light = document.getElementsByClassName("hidelight");
+    // let search = document.getElementById('search');
+    //
+    // search.addEventListener('click', function() {
+    //     for(let i = 0; i < light.length; i++){
+    //         // light[i].style.color = "blue";
+    //         light[i].classList.add('visually-hidden');
+    //
+    //     }
+    // });
 
 
 
     function renderCoffee(coffee) {
-        let html = '<tr class="coffee">';
-        html += '<td>' + coffee.id + '</td>';
-        html += '<td>' + coffee.name + '</td>';
-        html += '<td>' + coffee.roast + '</td>';
-        html += '</tr>';
+        let html = '<div class="coffee col-6 d-flex">';
+        html += '<div="' + coffee.id + '" class="light d-flex">';
+        html += '<h4>' + coffee.name + '</h4>';
+        html += '<p class="m-1">' + coffee.roast + '</p>';
+        html += '</div>';
+        html += '</div>';
 
         return html;
     }
+
+// <div className="col-6 d-flex hidelight">
+//     <div id="1" className="light d-flex">
+//         <h4>Light City</h4>
+//         <p className="m-1">light</p>
+//     </div>
+// </div>
 
     function renderCoffees(coffees) {
         let html = '';
@@ -73,6 +81,6 @@
 
     submitButton.addEventListener('click', updateCoffees);
 
-})();
+// })();
 
 
