@@ -15,6 +15,10 @@
 // });
 
 
+
+let idiot = document.getElementById("you-idiot");
+
+
 function renderCoffee(coffee) {
     let html = '<div class="coffee col-6 d-flex">';
     html += '<div="' + coffee.id + '" class="light d-flex">';
@@ -40,10 +44,15 @@ function updateCoffees(e) {
     let coffeeName = coffeeSelection.value;
     let filteredCoffees = [];
     coffees.forEach(function (coffee) {
-        if (coffee.roast === selectedRoast) {
+        if ((coffee.roast === selectedRoast || selectedRoast === "all") && coffeeName === "" ) {
             filteredCoffees.push(coffee);
-        } else if (coffee.name === coffeeName) {
+        } else if (selectedRoast === "all" && coffee.name === coffeeName) {
             filteredCoffees.push(coffee);
+        } else if ((coffee.roast === selectedRoast && selectedRoast !== "all") && coffee.name === coffeeName){
+            filteredCoffees.push(coffee);
+        } else if ((coffee.roast === selectedRoast || selectedRoast === "all") && coffee.name !== coffeeName){
+            filteredCoffees.push(coffee);
+            document.getElementById("alert").classList.remove('visually-hidden');
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
