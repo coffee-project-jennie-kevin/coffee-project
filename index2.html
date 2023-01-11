@@ -12,40 +12,76 @@
 
 <div class="container-fluid">
     <div class="row">
-
-        <!--    whole coffee div   -->
         <div class="container-fluid col">
             <div class="row" id="coffees"></div>
         </div>
 
         <!--    forms-->
         <div class="col">
-            <form>
-                <span class="form-labels">Roast</span>
+            <div class="container-fluid">
+                <div class="row">
+<!--form 1-->
+                    <form>
+                        <span class="form-labels">Roast</span>
 
-                <br>
-<!--                <label for="roast-selection"></label>-->
-                <select class="form-select" id="roast-selection">
-                    <option id="op-all">all</option>
-                    <option id="op-light">light</option>
-                    <option id="op-medium">medium</option>
-                    <option id="op-dark">dark</option>
-                </select>
-                <br>
-                <div class="form-outline" id="inputGroup-sizing-sm">
-                    <span class="form-labels">Coffee name</span>
-                    <input class="form-control" id="filteredCoffees" type="text">
-                </div>
-                <br>
-                <div class="d-grid gap-2">
-                    <button id="submit" class="btn btn-primary" type="button">
-                        Submit
-                    </button>
+                        <br>
+                        <!--                <label for="roast-selection"></label>-->
+                        <select class="form-select" id="roast-selection">
+                            <option id="op-all">all</option>
+                            <option id="op-light">light</option>
+                            <option id="op-medium">medium</option>
+                            <option id="op-dark">dark</option>
+                        </select>
 
+                        <br>
+
+                        <div class="form-outline" id="inputGroup-sizing-sm">
+                            <span class="form-labels">Coffee name</span>
+                            <input class="form-control" id="filteredCoffees" type="text">
+                        </div>
+                        <br>
+                        <div class="d-grid gap-2">
+                            <button id="submit" class="btn btn-primary" type="button">
+                                Submit
+                            </button>
+
+                        </div>
+                    </form>
+<!--                    form 2-->
+                    <form class="mt-3">
+                        <h2 class="d-flex justify-content-center">Add a Coffee!</h2>
+                        <span class="form-labels">Roast</span>
+
+                        <br>
+                        <!--                <label for="roast-selection"></label>-->
+                        <select class="form-select" id="addRoast">
+                            <option id="op-all">all</option>
+                            <option id="op-light">light</option>
+                            <option id="op-medium">medium</option>
+                            <option id="op-dark">dark</option>
+                        </select>
+
+                        <br>
+
+                        <div class="form-outline" id="inputGroup-sizing-sm">
+                            <span class="form-labels">Coffee name</span>
+                            <input class="form-control" id="addCoffee" type="text">
+                        </div>
+                        <br>
+                        <div class="d-grid gap-2">
+                            <button id="submitCoffee" class="btn btn-primary" type="button">
+                                Submit
+                            </button>
+
+                        </div>
+                    </form>
+
+
+                    <div id="alert" class="alert alert-warning alert-dismissible visually-hidden fade show"
+                         role="alert">
+                        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                    </div>
                 </div>
-            </form>
-            <div id="alert" class="alert alert-warning alert-dismissible visually-hidden fade show" role="alert">
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
             </div>
         </div>
 
