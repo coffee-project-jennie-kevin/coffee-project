@@ -64,17 +64,6 @@ let coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-// addRoast
-// addCoffee
-// submitCoffee
-
-// arr.push({
-//     firsName: firstName,
-//     lastName: lastName
-// });
-
-
-
 function addCoffeeToCoffeesArray () {
     coffees.push({
         id: (coffees.length+1),
@@ -86,14 +75,12 @@ function addCoffeeToCoffeesArray () {
 
 }
 
-
 let tbody = document.querySelector('#coffees');
 let submitButton = document.querySelector('#submit');
 let roastSelection = document.querySelector('#roast-selection');
 let coffeeSelection = document.querySelector('#filteredCoffees');
 const addRoastSelection = document.querySelector('#addRoast');
 const addCoffeeSelection = document.querySelector('#addCoffee');
-
 
 tbody.innerHTML = renderCoffees(coffees);
 submitButton.addEventListener('click', updateCoffees);
