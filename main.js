@@ -16,7 +16,7 @@
 
 
 
-let idiot = document.getElementById("you-idiot");
+// let idiot = document.getElementById("you-idiot");
 
 
 function renderCoffee(coffee) {
@@ -43,18 +43,23 @@ function updateCoffees(e) {
     let selectedRoast = roastSelection.value;
     let coffeeName = coffeeSelection.value;
     let filteredCoffees = [];
+
+    document.getElementById("alert").classList.add('visually-hidden');
+
     coffees.forEach(function (coffee) {
         if ((coffee.roast === selectedRoast || selectedRoast === "all") && coffeeName === "" ) {
             filteredCoffees.push(coffee);
         } else if (selectedRoast === "all" && coffee.name === coffeeName) {
             filteredCoffees.push(coffee);
-        } else if ((coffee.roast === selectedRoast && selectedRoast !== "all") && coffee.name === coffeeName){
+        } else if ((coffee.roast === selectedRoast) && coffee.name === coffeeName){
             filteredCoffees.push(coffee);
-        } else if ((coffee.roast === selectedRoast || selectedRoast === "all") && coffee.name !== coffeeName){
-            filteredCoffees.push(coffee);
-            document.getElementById("alert").classList.remove('visually-hidden');
         }
     });
+
+    if (filteredCoffees.length===0) {
+        document.getElementById("alert").classList.remove('visually-hidden');
+    }
+
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
