@@ -1,5 +1,24 @@
 * {
     font-family:  serif;
+    color: #EADDCA;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: #EADDCA;
+}
+
+.titleYMIR {
+}
+
+body {
+    background-image: url("coffee-4912804_960_720.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #EADDCA;
 }
 
 .form-labels {
