@@ -1,24 +1,5 @@
 "use strict"
 
-// let coffeeTitle = document.getElementById("coffeeTitle");
-// coffeeTitle.innerHTML = "mission accomplished";
-// console.log(coffeeTitle);
-// let light = document.getElementsByClassName("hidelight");
-// let search = document.getElementById('search');
-//
-// search.addEventListener('click', function() {
-//     for(let i = 0; i < light.length; i++){
-//         // light[i].style.color = "blue";
-//         light[i].classList.add('visually-hidden');
-//
-//     }
-// });
-
-
-
-// let idiot = document.getElementById("you-idiot");
-
-
 function renderCoffee(coffee) {
     let html = '<div class="coffee col-6 d-flex">';
     html += '<div="' + coffee.id + '" class="light d-flex">';
@@ -87,13 +68,32 @@ let coffees = [
 // addCoffee
 // submitCoffee
 
-coffees.push()
+// arr.push({
+//     firsName: firstName,
+//     lastName: lastName
+// });
+
+
+
+function addCoffeeToCoffeesArray () {
+    coffees.push({
+        id: (coffees.length+1),
+        name: addCoffeeSelection.value,
+        roast: addRoastSelection.value
+    });
+
+    updateCoffees();
+
+}
 
 
 let tbody = document.querySelector('#coffees');
 let submitButton = document.querySelector('#submit');
 let roastSelection = document.querySelector('#roast-selection');
 let coffeeSelection = document.querySelector('#filteredCoffees');
+const addRoastSelection = document.querySelector('#addRoast');
+const addCoffeeSelection = document.querySelector('#addCoffee');
+
 
 tbody.innerHTML = renderCoffees(coffees);
 submitButton.addEventListener('click', updateCoffees);
@@ -104,3 +104,6 @@ coffeeNameLookUp.addEventListener("change", updateCoffees);
 let searchCoffee = document.getElementById("filteredCoffees");
 searchCoffee.addEventListener('keyup', updateCoffees)
 
+let submitCoffee = document.getElementById("submitCoffee")
+submitCoffee.addEventListener('click', addCoffeeToCoffeesArray);
+submitCoffee.addEventListener('click', updateCoffees);
