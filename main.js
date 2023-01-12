@@ -4,7 +4,7 @@ function renderCoffee(coffee) {
     let html = '<div class="coffee col-6 d-flex justify-content-center">';
     html += '<div="' + coffee.id + '" class="light d-flex">';
     html += '<h4>' + coffee.name + '</h4>';
-    html += '<p class="m-1">' + coffee.roast + '</p>';
+    html += '<p class="m-1">' + coffee.openSpan + coffee.roast + coffee.closeSpan + '</p>';
     html += '</div>';
     html += '</div>';
 
@@ -48,31 +48,43 @@ function updateCoffees(e) {
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 let coffees = [
-    {id: 1, name: 'Light City', roast: 'light'},
-    {id: 2, name: 'Half City', roast: 'light'},
-    {id: 3, name: 'Cinnamon', roast: 'light'},
-    {id: 4, name: 'City', roast: 'medium'},
-    {id: 5, name: 'American', roast: 'medium'},
-    {id: 6, name: 'Breakfast', roast: 'medium'},
-    {id: 7, name: 'High', roast: 'dark'},
-    {id: 8, name: 'Continental', roast: 'dark'},
-    {id: 9, name: 'New Orleans', roast: 'dark'},
-    {id: 10, name: 'European', roast: 'dark'},
-    {id: 11, name: 'Espresso', roast: 'dark'},
-    {id: 12, name: 'Viennese', roast: 'dark'},
-    {id: 13, name: 'Italian', roast: 'dark'},
-    {id: 14, name: 'French', roast: 'dark'},
+    {id: 1, name: 'Light City', roast: 'light', openSpan:'<span style="color: #A8E4A0">', closeSpan:'</span>'},
+    {id: 2, name: 'Half City', roast: 'light', openSpan:'<span style="color: #A8E4A0">', closeSpan:'</span>'},
+    {id: 3, name: 'Cinnamon', roast: 'light', openSpan:'<span style="color: #A8E4A0">', closeSpan:'</span>'},
+    {id: 4, name: 'City', roast: 'medium', openSpan:'<span style="color: #8DB600">', closeSpan:'</span>'},
+    {id: 5, name: 'American', roast: 'medium', openSpan:'<span style="color: #8DB600">', closeSpan:'</span>'},
+    {id: 6, name: 'Breakfast', roast: 'medium', openSpan:'<span style="color: #8DB600">', closeSpan:'</span>'},
+    {id: 7, name: 'High', roast: 'dark', openSpan:'<span style="color: #507D2A">', closeSpan:'</span>'},
+    {id: 8, name: 'Continental', roast: 'dark', openSpan:'<span style="color: #507D2A">', closeSpan:'</span>'},
+    {id: 9, name: 'New Orleans', roast: 'dark', openSpan:'<span style="color: #507D2A">', closeSpan:'</span>'},
+    {id: 10, name: 'European', roast: 'dark', openSpan:'<span style="color: #507D2A">', closeSpan:'</span>'},
+    {id: 11, name: 'Espresso', roast: 'dark', openSpan:'<span style="color: #507D2A">', closeSpan:'</span>'},
+    {id: 12, name: 'Viennese', roast: 'dark', openSpan:'<span style="color: #507D2A">', closeSpan:'</span>'},
+    {id: 13, name: 'Italian', roast: 'dark', openSpan:'<span style="color: #507D2A">', closeSpan:'</span>'},
+    {id: 14, name: 'French', roast: 'dark', openSpan:'<span style="color: #507D2A">', closeSpan:'</span>'},
 ];
 
 function addCoffeeToCoffeesArray () {
     coffees.push({
         id: (coffees.length+1),
         name: addCoffeeSelection.value,
-        roast: addRoastSelection.value
-    });
+        roast: addRoastSelection.value,
+        openSpan: addRoastColor(),
+
+        closeSpan: '</span>'
+        });
 
     updateCoffees();
+}
 
+function addRoastColor () {
+    if (addRoastSelection.value === 'light') {
+        return '<span style="color: #A8E4A0">'
+    } else if (addRoastSelection.value === 'medium') {
+        return '<span style="color: #8DB600">'
+    } else {
+        return '<span style="color: #507D2A">'
+    }
 }
 
 let tbody = document.querySelector('#coffees');
